@@ -33,8 +33,8 @@ object Versions {
 
 object Dependencies {
     val essential = listOf(
-        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Essential.Coroutines}",
-        "androidx.core:core-ktx:${Versions.Essential.Ktx}"
+        "androidx.core:core-ktx:${Versions.Essential.Ktx}",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Essential.Coroutines}"
     )
 
     val compose = listOf(
