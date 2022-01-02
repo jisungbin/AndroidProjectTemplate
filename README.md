@@ -1,7 +1,9 @@
 # AndroidBaseComposeTemplate
+
 Android base Jetpack Compose project template with Gradle Kotlin-DSL.
 
 # Includes
+
 ```kotlin
 val essential = listOf(
     "androidx.core:core-ktx:${Versions.Essential.Ktx}",
