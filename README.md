@@ -1,6 +1,6 @@
 # AndroidBaseComposeTemplate
 
-Android base Jetpack Compose project template with Gradle Kotlin-DSL.
+Android base Jetpack Compose project template with Gradle Kotlin-DSL and Clean Architecture.
 
 # Includes
 

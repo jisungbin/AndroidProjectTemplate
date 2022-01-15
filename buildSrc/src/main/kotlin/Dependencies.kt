@@ -2,8 +2,8 @@ import org.gradle.api.JavaVersion
 
 object Application {
     const val minSdk = 24
-    const val targetSdk = 30
-    const val compileSdk = 30
+    const val targetSdk = 31
+    const val compileSdk = 31
     const val jvmTarget = "11"
     const val versionCode = 1
     const val versionName = "1.0.0"
@@ -14,20 +14,20 @@ object Application {
 
 object Versions {
     object Essential {
-        const val Kotlin = "1.5.30"
-        const val Coroutines = "1.5.2"
-        const val Gradle = "7.1.0-alpha05"
-        const val Ktx = "1.6.0"
+        const val Kotlin = "1.6.10"
+        const val Coroutines = "1.6.0"
+        const val Gradle = "7.1.0-rc01"
+        const val Ktx = "1.7.0"
     }
 
     object Compose {
-        const val Master = "1.0.2"
-        const val Activity = "1.3.1"
-        const val LifeCycle = "1.0.0-alpha07"
+        const val Master = "1.2.0-alpha01"
+        const val Activity = "1.4.0"
+        const val Lifecycle = "2.4.0"
     }
 
     object Ui {
-        const val Material = "1.4.0"
+        const val Material = "1.5.0"
     }
 }
 
@@ -44,7 +44,7 @@ object Dependencies {
         "androidx.compose.material:material:${Versions.Compose.Master}",
         "androidx.activity:activity-compose:${Versions.Compose.Activity}",
         "androidx.compose.runtime:runtime-livedata:${Versions.Compose.Master}",
-        "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.LifeCycle}"
+        "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.Lifecycle}"
     )
 
     val ui = listOf(
