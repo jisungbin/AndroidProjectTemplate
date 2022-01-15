@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
 }
@@ -10,17 +10,7 @@ android {
     defaultConfig {
         minSdk = Application.minSdk
         targetSdk = Application.targetSdk
-        versionCode = Application.versionCode
-        versionName = Application.versionName
         multiDexEnabled = true
-    }
-
-    buildTypes {
-        release {
-            isDebuggable = false
-            isMinifyEnabled = true
-            isShrinkResources = true
-        }
     }
 
     sourceSets {
@@ -37,18 +27,9 @@ android {
     kotlinOptions {
         jvmTarget = Application.jvmTarget
     }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Compose.Master
-    }
 }
 
 dependencies {
-    Dependencies.ui.forEach(::implementation)
-    Dependencies.compose.forEach(::implementation)
-    Dependencies.essential.forEach(::implementation)
+    implementation(project(":domain"))
+    Dependencies.Essential.forEach(::implementation)
 }

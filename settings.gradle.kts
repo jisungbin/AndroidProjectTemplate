@@ -1,2 +1,2 @@
 rootProject.name = "ComposeTemplate"
-include(":app")
+include(":data", ":domain", ":presentation")

@@ -32,12 +32,12 @@ object Versions {
 }
 
 object Dependencies {
-    val essential = listOf(
+    val Essential = listOf(
         "androidx.core:core-ktx:${Versions.Essential.Ktx}",
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Essential.Coroutines}"
     )
 
-    val compose = listOf(
+    val Compose = listOf(
         "androidx.compose.ui:ui:${Versions.Compose.Master}",
         "androidx.compose.ui:ui-tooling:${Versions.Compose.Master}",
         "androidx.compose.compiler:compiler:${Versions.Compose.Master}",
@@ -47,7 +47,7 @@ object Dependencies {
         "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.Lifecycle}"
     )
 
-    val ui = listOf(
+    val Ui = listOf(
         "com.google.android.material:material:${Versions.Ui.Material}"
     )
 }
