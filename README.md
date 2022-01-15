@@ -17,7 +17,7 @@ val compose = listOf(
     "androidx.compose.material:material:${Versions.Compose.Master}",
     "androidx.activity:activity-compose:${Versions.Compose.Activity}",
     "androidx.compose.runtime:runtime-livedata:${Versions.Compose.Master}",
-    "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.LifeCycle}"
+    "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.Lifecycle}"
 )
 
 val ui = listOf(
