@@ -2,6 +2,8 @@
 
 Android base Jetpack Compose project template with Gradle Kotlin-DSL and Clean Architecture.
 
+[[Without Clean Architecture]](https://github.com/jisungbin/AndroidBaseComposeTemplate/tree/fb6d0dca590a449dc73f6f2869d2580446b5bdf4)
+
 # Includes
 
 ```kotlin
