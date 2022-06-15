@@ -1,34 +1,34 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-kapt")
+    id("org.jetbrains.dokka") version Versions.BuildUtil.Dokka
+    id("de.mannodermaus.android-junit5")
+    jacoco
 }
 
-android {
-    compileSdk = Application.compileSdk
+jacoco {
+    toolVersion = Versions.Test.JaCoCo
+}
 
-    defaultConfig {
-        minSdk = Application.minSdk
-        targetSdk = Application.targetSdk
-        multiDexEnabled = true
+tasks.withType<JacocoReport> {
+    reports {
+        html.required.set(true)
+        html.outputLocation.set(layout.projectDirectory.dir("../documents/coverage/jacoco/html"))
+        xml.required.set(true) // codecov depends on xml format report
+        xml.outputLocation.set(layout.projectDirectory.file("../documents/coverage/jacoco/report.xml"))
     }
+}
 
-    sourceSets {
-        getByName("main").run {
-            java.srcDirs("src/main/kotlin")
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = Application.sourceCompat
-        targetCompatibility = Application.targetCompat
-    }
-
-    kotlinOptions {
-        jvmTarget = Application.jvmTarget
-    }
+tasks.withType<Test> {
+    useJUnitPlatform()
+    finalizedBy("jacocoTestReport")
 }
 
 dependencies {
-    Dependencies.Essential.forEach(::implementation)
+    /*implementationProject(ProjectConstants.SharedDomain)
+
+    testRuntimeOnly(Dependencies.Test.JunitEngine)
+    testImplementation(Dependencies.Test.JunitApi)
+    testImplementation(Dependencies.Test.Hamcrest)
+    testImplementation(Dependencies.Test.Coroutine)*/
 }

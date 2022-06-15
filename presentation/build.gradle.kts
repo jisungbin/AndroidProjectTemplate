@@ -1,54 +1,99 @@
+/*
+ * RunnerBe © 2022 Team AppleMango. all rights reserved.
+ * RunnerBe license is under the MIT.
+ *
+ * [build.gradle.kts] created by Ji Sungbin on 22. 2. 1. 오전 11:11
+ *
+ * Please see: https://github.com/applemango-runnerbe/RunnerBe-Android/blob/main/LICENSE.
+ */
+
 plugins {
+    // id("com.spotify.ruler")
+    installPlugins(
+        isPresentation = true,
+        isDFM = false,
+        scabbard = false,
+        test = false,
+        hilt = false,
+    )
     id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-kapt")
+    // id("com.google.gms.google-services")
+    // id("com.google.firebase.crashlytics")
+    // id("com.google.firebase.firebase-perf")
+    id("com.google.android.gms.oss-licenses-plugin")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    id("name.remal.check-dependency-updates") version Versions.BuildUtil.CheckDependencyUpdates
 }
 
+/*ruler {
+    abi.set("arm64-v8a")
+    locale.set("ko")
+    screenDensity.set(480)
+    sdkVersion.set(31)
+}*/
+
 android {
-    compileSdk = Application.compileSdk
+    // TODO
+    /*signingConfigs {
+        create("release") {
+            storeFile = file(BuildConstants.StoreFilePath)
+            storePassword = BuildConstants.StorePassword
+            keyAlias = BuildConstants.KeyAlias
+            keyPassword = BuildConstants.KeyPassword
+        }
+    }*/
 
     defaultConfig {
-        minSdk = Application.minSdk
-        targetSdk = Application.targetSdk
-        versionCode = Application.versionCode
-        versionName = Application.versionName
-        multiDexEnabled = true
+        versionCode = ApplicationConstants.versionCode
+        versionName = ApplicationConstants.versionName
     }
 
     buildTypes {
-        release {
-            isDebuggable = false
-            isMinifyEnabled = true
-            isShrinkResources = true
+        debug {
+            aaptOptions.cruncherEnabled = false // png optimization (default: true)
         }
-    }
 
-    sourceSets {
-        getByName("main").run {
-            java.srcDirs("src/main/kotlin")
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = Application.sourceCompat
-        targetCompatibility = Application.targetCompat
-    }
-
-    kotlinOptions {
-        jvmTarget = Application.jvmTarget
+        // TODO
+        /*release {
+            signingConfig = signingConfigs.getByName("release")
+        }*/
     }
 
     buildFeatures {
         compose = true
+        dataBinding = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Compose.Master
+        kotlinCompilerExtensionVersion = Versions.Compose.Main
     }
 }
 
 dependencies {
+    /*val features = listOf(
+        ProjectConstants.Mail,
+        ProjectConstants.SharedAndroid,
+        ProjectConstants.MyPage,
+        ProjectConstants.HomeBoard,
+        ProjectConstants.RegisterSnsLogin,
+        ProjectConstants.RegisterOnboard
+    )
+    features.forEach(::implementationProject)
+
+    implementation(Dependencies.Util.Erratum)
+    implementation(Dependencies.EachUi.AppCompat)
+    implementation(platform(Dependencies.FirebaseBom))
+    implementation(Dependencies.FirebaseEachKtx.Analytics)
+    implementation(Dependencies.FirebaseEachKtx.Performance)
+    // implementation(Dependencies.FirebaseEachKtx.Crashlytics)
+    implementation(Dependencies.FirebaseEachKtx.RemoteConfig)
+
     Dependencies.Ui.forEach(::implementation)
-    Dependencies.Compose.forEach(::implementation)
-    Dependencies.Essential.forEach(::implementation)
+    Dependencies.Login.forEach(::implementation)
+    Dependencies.Location.forEach(::implementation)
+    Dependencies.Analytics.forEach(::implementation)
+    Dependencies.PresentationOnlyKtx.forEach(::implementation)
+
+    debugImplementation(Dependencies.Debug.LeakCanary)
+    installSharedComposeOrbitHiltTest()*/
 }
