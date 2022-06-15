@@ -16,9 +16,7 @@ android {
 dependencies {
     implementation(Dependencies.EachKtx.Core)
     implementation(Dependencies.EachKtx.Lifecycle)
-    /*implementationProject(ProjectConstants.Domain)
+    implementationProject(ProjectConstants.Domain)
     implementationProject(ProjectConstants.SharedDomain)
-    implementationProject(ProjectConstants.XmlRangePicker)
-    implementationProject(ProjectConstants.XmlSuperWheelPicker)*/
     Dependencies.Compose.forEach(::implementation)
 }

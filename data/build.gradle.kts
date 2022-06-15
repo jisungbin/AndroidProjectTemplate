@@ -15,7 +15,6 @@ ksp {
 }
 
 dependencies {
-    /*Dependencies.Login.forEach(::implementation)
     Dependencies.Jackson.forEach(::implementation)
     Dependencies.Network.forEach(::implementation)
 
@@ -27,5 +26,5 @@ dependencies {
     implementation(platform(Dependencies.FirebaseBom))
     implementation(Dependencies.FirebaseEachKtx.Storage)
 
-    ksp(Dependencies.Compiler.RoomKsp)*/
+    ksp(Dependencies.Compiler.RoomKsp)
 }

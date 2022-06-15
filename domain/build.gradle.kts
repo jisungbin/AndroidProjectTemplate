@@ -25,10 +25,10 @@ tasks.withType<Test> {
 }
 
 dependencies {
-    /*implementationProject(ProjectConstants.SharedDomain)
+    implementationProject(ProjectConstants.SharedDomain)
 
     testRuntimeOnly(Dependencies.Test.JunitEngine)
     testImplementation(Dependencies.Test.JunitApi)
     testImplementation(Dependencies.Test.Hamcrest)
-    testImplementation(Dependencies.Test.Coroutine)*/
+    testImplementation(Dependencies.Test.Coroutine)
 }

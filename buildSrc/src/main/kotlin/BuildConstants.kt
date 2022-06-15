@@ -7,9 +7,10 @@
  * Please see: https://github.com/applemango-runnerbe/RunnerBe-Android/blob/main/LICENSE.
  */
 
+// TODO: input your constants
 object BuildConstants {
-    const val StoreFilePath = "../keystore/RunnerBe.pepk"
-    const val StorePassword = "ingan123"
-    const val KeyAlias = "key0"
-    const val KeyPassword = "ingan123"
+    const val StoreFilePath = ""
+    const val StorePassword = ""
+    const val KeyAlias = ""
+    const val KeyPassword = ""
 }

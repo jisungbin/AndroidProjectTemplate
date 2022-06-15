@@ -1,12 +1,3 @@
-/*
- * RunnerBe © 2022 Team AppleMango. all rights reserved.
- * RunnerBe license is under the MIT.
- *
- * [Dependencies.kt] created by Ji Sungbin on 22. 1. 31. 오후 10:01
- *
- * Please see: https://github.com/applemango-runnerbe/RunnerBe-Android/blob/main/LICENSE.
- */
-
 object Dependencies {
     const val Ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.Ksp}"
     const val FirebaseBom = "com.google.firebase:firebase-bom:${Versions.FirebaseBom}"
@@ -35,8 +26,6 @@ object Dependencies {
 
     object EachUi {
         const val Browser = "androidx.browser:browser:${Versions.Ui.Browser}"
-        const val AppCompat = "androidx.appcompat:appcompat:${Versions.Ui.AppCompat}"
-        const val PhotoEditor = "com.burhanrashid52:photoeditor:${Versions.Ui.PhotoEditor}"
         const val Material = "com.google.android.material:material:${Versions.Ui.Material}"
         const val ConstraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.Ui.ConstraintLayout}"
@@ -45,10 +34,6 @@ object Dependencies {
     val SharedKtx = listOf(
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Ktx.Lifecycle}",
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Ktx.Lifecycle}"
-    )
-
-    val PresentationOnlyKtx = listOf(
-        "com.google.android.play:core-ktx:${Versions.Ktx.PlayCore}",
     )
 
     val Compose = listOf(
@@ -78,11 +63,6 @@ object Dependencies {
         "com.squareup.retrofit2:retrofit:${Versions.Network.Retrofit}",
         "com.squareup.okhttp3:logging-interceptor:${Versions.Network.OkHttp}",
         "com.squareup.retrofit2:converter-jackson:${Versions.Network.Retrofit}"
-    )
-
-    val Login = listOf(
-        "com.kakao.sdk:v2-user:${Versions.Login.Kakao}",
-        "com.navercorp.nid:oauth:${Versions.Login.Naver}"
     )
 
     object Util { // Erratum 은 :presentation 에서만 쓰임

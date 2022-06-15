@@ -39,7 +39,7 @@ fun DependencyHandler.installDependencies(
         implementation(Dependencies.Orbit.Main)
     }
     if (!isSharedModule) {
-        // implementationProject(ProjectConstants.SharedAndroid)
+        implementationProject(ProjectConstants.SharedAndroid)
     }
     if (hilt) {
         implementation(Dependencies.Jetpack.Hilt)
@@ -48,7 +48,7 @@ fun DependencyHandler.installDependencies(
     if (compose) {
         Dependencies.Compose.forEach(::implementation)
         Dependencies.Debug.Compose.forEach(::debugImplementation)
-        // implementationProject(ProjectConstants.SharedCompose)
+        implementationProject(ProjectConstants.SharedCompose)
     }
     if (test) {
         add("testImplementation", Dependencies.Orbit.Test)

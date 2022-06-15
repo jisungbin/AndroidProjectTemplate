@@ -1,12 +1,3 @@
-/*
- * RunnerBe © 2022 Team AppleMango. all rights reserved.
- * RunnerBe license is under the MIT.
- *
- * [Versions.kt] created by Ji Sungbin on 22. 3. 15. 오후 8:54
- *
- * Please see: https://github.com/applemango-runnerbe/RunnerBe-Android/blob/main/LICENSE.
- */
-
 object Versions {
     const val Orbit = "4.3.2"
     const val Ksp = "1.6.10-1.0.4"
@@ -48,8 +39,6 @@ object Versions {
     object Ui {
         const val Browser = "1.3.0"
         const val Material = "1.6.0-alpha03"
-        const val AppCompat = "1.4.1"
-        const val PhotoEditor = "2.0.0"
         const val Splash = "1.0.0-beta02"
         const val ConstraintLayout = "2.1.3"
     }
@@ -74,22 +63,10 @@ object Versions {
         const val FirebaseCrashlytics = "2.8.1"
     }
 
-    object Location {
-        const val Locus = "4.0.1"
-        const val GmsMap = "18.0.2"
-        const val GmsLocation = "19.0.1"
-        const val GoogleMapCompose = "2.1.0"
-    }
-
     object Jetpack {
         const val Hilt = "2.41"
         const val Room = "2.4.2"
         const val DataStore = "1.0.0"
-    }
-
-    object Login {
-        const val Kakao = "2.9.0"
-        const val Naver = "5.1.0"
     }
 
     object OssLicense {
