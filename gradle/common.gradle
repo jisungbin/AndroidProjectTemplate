@@ -11,8 +11,7 @@ if (hasLibraryPlugin || hasApplicationPlugin || hasDFMPlugin) {
             fullBindingGraphValidation = true
         }
     }
-
-    // TODO: change namespace to your package
+    
     android {
         compileSdk = ApplicationConstants.compileSdk
 
