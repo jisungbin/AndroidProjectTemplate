@@ -1,35 +1,42 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp") version Versions.Ksp
+}
+
+kotlin {
+    sourceSets.main {
+        kotlin.srcDir("build/generated/ksp/main/kotlin")
+    }
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 android {
-    compileSdk = Application.compileSdk
-
-    defaultConfig {
-        minSdk = Application.minSdk
-        targetSdk = Application.targetSdk
-        multiDexEnabled = true
-    }
-
-    sourceSets {
-        getByName("main").run {
-            java.srcDirs("src/main/kotlin")
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = Application.sourceCompat
-        targetCompatibility = Application.targetCompat
-    }
-
-    kotlinOptions {
-        jvmTarget = Application.jvmTarget
-    }
+    namespace = "land.sungbin.androidprojecttemplate.composetemplate.domain"
 }
 
 dependencies {
-    implementation(project(":domain"))
-    Dependencies.Essential.forEach(::implementation)
+    val dependencies = listOf(
+        Dependencies.Ksp,
+        Dependencies.Jackson,
+        Dependencies.Network,
+        Dependencies.Jetpack.Room,
+        platform(Dependencies.FirebaseBom),
+        Dependencies.FirebaseEachKtx.Storage
+    ).dependenciesFlatten()
+    dependencies.forEach(::implementation)
+
+    val projects = listOf(
+        ProjectConstants.Domain,
+        ProjectConstants.SharedDomain
+    )
+    projects.forEach(::projectImplementation)
+
+    val ksps = listOf(
+        Dependencies.Compiler.RoomKsp
+    )
+    ksps.forEach(::ksp)
 }
