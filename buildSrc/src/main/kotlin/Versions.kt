@@ -14,7 +14,7 @@ object Versions {
 
     object Essential {
         const val Gradle = "7.4.0-alpha03"
-        const val Kotlin = "1.7.0"
+        const val Kotlin = "1.6.21"
         const val Coroutines = "1.6.2"
         const val GoogleService = "4.3.3"
     }
@@ -27,7 +27,7 @@ object Versions {
     }
 
     object Compose {
-        const val Main = "1.2.0-beta03"
+        const val Main = "1.2.0-rc01"
         const val Activity = "1.6.0-alpha05"
         const val Landscapist = "1.5.2"
         const val ConstraintLayout = "1.0.1"

@@ -25,6 +25,10 @@ tasks.withType<Test> {
     finalizedBy("jacocoTestReport")
 }*/
 
+android {
+    namespace ="land.sungbin.androidprojecttemplate.composetemplate.domain"
+}
+
 dependencies {
     val projects = listOf(
         ProjectConstants.SharedDomain

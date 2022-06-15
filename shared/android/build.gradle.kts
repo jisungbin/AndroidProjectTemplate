@@ -4,6 +4,10 @@ plugins {
     id("name.remal.check-dependency-updates") version Versions.BuildUtil.CheckDependencyUpdates
 }
 
+android {
+    namespace = "land.sungbin.androidprojecttemplate.shared.android"
+}
+
 dependencies {
     val apis = listOf(
         Dependencies.SharedKtx,

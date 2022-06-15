@@ -24,6 +24,8 @@ plugins {
 }*/
 
 android {
+    namespace = "land.sungbin.androidprojecttemplate"
+
     // TODO: set your signing configs
     /*signingConfigs {
         create("release") {

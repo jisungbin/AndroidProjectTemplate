@@ -14,6 +14,10 @@ ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 
+android {
+    namespace = "land.sungbin.androidprojecttemplate.composetemplate.domain"
+}
+
 dependencies {
     val dependencies = listOf(
         Dependencies.Ksp,
