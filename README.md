@@ -1,6 +1,6 @@
 # AndroidProjectTemplate
 
-Android project template for Me([@jisungbin](https://github.com/jisungbin))
+Android project template for Me([@jisungbin](https://github.com/jisungbin)).
 
 [[Without Clean Architecture]](https://github.com/jisungbin/AndroidBaseComposeTemplate/tree/fb6d0dca590a449dc73f6f2869d2580446b5bdf4)
 
