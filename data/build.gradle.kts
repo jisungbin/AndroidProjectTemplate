@@ -15,16 +15,24 @@ ksp {
 }
 
 dependencies {
-    Dependencies.Jackson.forEach(::implementation)
-    Dependencies.Network.forEach(::implementation)
+    val dependencies = listOf(
+        Dependencies.Ksp,
+        Dependencies.Jackson,
+        Dependencies.Network,
+        Dependencies.Jetpack.Room,
+        platform(Dependencies.FirebaseBom),
+        Dependencies.FirebaseEachKtx.Storage
+    ).dependenciesFlatten()
+    dependencies.forEach(::implementation)
 
-    implementationProject(ProjectConstants.Domain)
-    implementationProject(ProjectConstants.SharedDomain)
+    val projects = listOf(
+        ProjectConstants.Domain,
+        ProjectConstants.SharedDomain
+    )
+    projects.forEach(::projectImplementation)
 
-    implementation(Dependencies.Ksp)
-    implementation(Dependencies.Jetpack.Room)
-    implementation(platform(Dependencies.FirebaseBom))
-    implementation(Dependencies.FirebaseEachKtx.Storage)
-
-    ksp(Dependencies.Compiler.RoomKsp)
+    val ksps = listOf(
+        Dependencies.Compiler.RoomKsp
+    )
+    ksps.forEach(::ksp)
 }

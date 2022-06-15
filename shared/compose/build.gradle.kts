@@ -19,7 +19,7 @@ dependencies {
         ProjectConstants.Domain,
         ProjectConstants.SharedDomain
     )
-    projects.forEach(::implementationProject)
+    projects.forEach(::projectImplementation)
 
     val dependencies = listOf(
         Dependencies.Compose,

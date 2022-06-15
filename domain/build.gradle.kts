@@ -4,10 +4,10 @@ plugins {
     id("org.jetbrains.dokka") version Versions.BuildUtil.Dokka
     id("de.mannodermaus.android-junit5")
     id("name.remal.check-dependency-updates") version Versions.BuildUtil.CheckDependencyUpdates
-    jacoco
+    // jacoco
 }
 
-jacoco {
+/*jacoco {
     toolVersion = Versions.Test.JaCoCo
 }
 
@@ -23,16 +23,13 @@ tasks.withType<JacocoReport> {
 tasks.withType<Test> {
     useJUnitPlatform()
     finalizedBy("jacocoTestReport")
-}
+}*/
 
 dependencies {
-    implementationProject(ProjectConstants.SharedDomain)
+    val projects = listOf(
+        ProjectConstants.SharedDomain
+    )
+    projects.forEach(::projectImplementation)
 
-    testRuntimeOnly(Dependencies.Test.JunitEngine)
-    testImplementation(Dependencies.Test.JunitApi)
-    testImplementation(Dependencies.Test.Hamcrest)
-    testImplementation(Dependencies.Test.Coroutine)
-}
-android {
-    namespace = "io.github.jisungbin.composetemplate.domain"
+    Dependencies.Test.forEach(::testImplementation)
 }

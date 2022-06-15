@@ -40,28 +40,27 @@ fun DependencyHandler.installDependencies(
         implementation(Dependencies.Orbit.Main)
     }
     if (!isSharedModule) {
-        implementationProject(ProjectConstants.SharedAndroid)
+        projectImplementation(ProjectConstants.SharedAndroid)
     }
     if (hilt) {
         implementation(Dependencies.Jetpack.Hilt)
-        add("kapt", Dependencies.Compiler.Hilt)
+        kapt(Dependencies.Compiler.Hilt)
     }
     if (compose) {
         Dependencies.Compose.forEach(::implementation)
         Dependencies.Debug.Compose.forEach(::debugImplementation)
-        implementationProject(ProjectConstants.SharedCompose)
+        projectImplementation(ProjectConstants.SharedCompose)
     }
     if (test) {
-        add("testImplementation", Dependencies.Orbit.Test)
-        add("testImplementation", Dependencies.Test.JunitApi)
-        add("testRuntimeOnly", Dependencies.Test.JunitEngine)
-        add("testImplementation", Dependencies.Test.Hamcrest)
-        add("testImplementation", Dependencies.Test.Coroutine)
+        testImplementation(Dependencies.Orbit.Test)
+        Dependencies.Test.forEach { testDependency ->
+            testImplementation(testDependency)
+        }
     }
 }
 
-fun DependencyHandler.implementationProject(path: String) {
-    add("implementation", project(path))
+fun DependencyHandler.projectImplementation(path: String) {
+    implementation(project(path))
 }
 
 @Suppress(
@@ -88,6 +87,14 @@ private fun DependencyHandler.implementation(dependency: Any) {
 
 private fun DependencyHandler.debugImplementation(dependency: Any) {
     add("debugImplementation", dependency)
+}
+
+private fun DependencyHandler.testImplementation(dependency: Any) {
+    add("testImplementation", dependency)
+}
+
+private fun DependencyHandler.kapt(dependency: Any) {
+    add("kapt", dependency)
 }
 
 private fun DependencyHandler.project(path: String) =

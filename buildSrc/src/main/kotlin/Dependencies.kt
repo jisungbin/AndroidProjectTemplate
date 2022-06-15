@@ -90,13 +90,12 @@ object Dependencies {
         const val Hilt = "com.google.dagger:hilt-android-compiler:${Versions.Jetpack.Hilt}"
     }
 
-    object Test { // dependency scope 가 각각 다름
-        const val Hamcrest = "org.hamcrest:hamcrest:${Versions.Test.Hamcrest}"
-        const val JunitApi = "org.junit.jupiter:junit-jupiter-api:${Versions.Test.JUnit}"
-        const val JunitEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.Test.JUnit}"
-        const val Coroutine =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Test.Coroutine}"
-    }
+    val Test = listOf(
+        "org.hamcrest:hamcrest:${Versions.Test.Hamcrest}",
+        "org.junit.jupiter:junit-jupiter-api:${Versions.Test.JUnit}",
+        "org.junit.jupiter:junit-jupiter-engine:${Versions.Test.JUnit}",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Test.Coroutine}"
+    )
 
     object Debug {
         const val LeakCanary =

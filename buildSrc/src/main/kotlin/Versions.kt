@@ -28,7 +28,7 @@ object Versions {
 
     object Compose {
         const val Main = "1.2.0-beta03"
-        const val Activity = "1.6.0-alpha04"
+        const val Activity = "1.6.0-alpha05"
         const val Landscapist = "1.5.2"
         const val ConstraintLayout = "1.0.1"
         const val LifecycleViewModel = "2.4.1"
@@ -79,7 +79,7 @@ object Versions {
 
     object Test {
         const val JUnit = "5.8.2"
-        const val JaCoCo = "0.8.7"
+        const val JaCoCo = "0.8.8"
         const val Hamcrest = "2.2"
         const val Coroutine = "1.6.2"
         const val JUnitGradle = "1.8.2.0"
