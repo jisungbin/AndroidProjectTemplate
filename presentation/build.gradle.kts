@@ -1,12 +1,3 @@
-/*
- * RunnerBe © 2022 Team AppleMango. all rights reserved.
- * RunnerBe license is under the MIT.
- *
- * [build.gradle.kts] created by Ji Sungbin on 22. 2. 1. 오전 11:11
- *
- * Please see: https://github.com/applemango-runnerbe/RunnerBe-Android/blob/main/LICENSE.
- */
-
 plugins {
     // id("com.spotify.ruler")
     installPlugins(
@@ -33,7 +24,7 @@ plugins {
 }*/
 
 android {
-    // TODO
+    // TODO: set your signing configs
     /*signingConfigs {
         create("release") {
             storeFile = file(BuildConstants.StoreFilePath)
@@ -70,30 +61,25 @@ android {
 }
 
 dependencies {
-    /*val features = listOf(
-        ProjectConstants.Mail,
+    val features = listOf(
         ProjectConstants.SharedAndroid,
-        ProjectConstants.MyPage,
-        ProjectConstants.HomeBoard,
-        ProjectConstants.RegisterSnsLogin,
-        ProjectConstants.RegisterOnboard
     )
     features.forEach(::implementationProject)
 
-    implementation(Dependencies.Util.Erratum)
-    implementation(Dependencies.EachUi.AppCompat)
-    implementation(platform(Dependencies.FirebaseBom))
-    implementation(Dependencies.FirebaseEachKtx.Analytics)
-    implementation(Dependencies.FirebaseEachKtx.Performance)
-    // implementation(Dependencies.FirebaseEachKtx.Crashlytics)
-    implementation(Dependencies.FirebaseEachKtx.RemoteConfig)
-
-    Dependencies.Ui.forEach(::implementation)
-    Dependencies.Login.forEach(::implementation)
-    Dependencies.Location.forEach(::implementation)
-    Dependencies.Analytics.forEach(::implementation)
-    Dependencies.PresentationOnlyKtx.forEach(::implementation)
+    val dependencies = listOf(
+        Dependencies.Ui,
+        Dependencies.Login,
+        Dependencies.Analytics,
+        Dependencies.Util.Erratum,
+    ).dependenciesFlatten()
+    dependencies.forEach(::implementation)
 
     debugImplementation(Dependencies.Debug.LeakCanary)
-    installSharedComposeOrbitHiltTest()*/
+    installDependencies(
+        isSharedModule = false,
+        orbit = false,
+        hilt = true,
+        compose = true,
+        test = false
+    )
 }

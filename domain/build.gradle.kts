@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("org.jetbrains.dokka") version Versions.BuildUtil.Dokka
     id("de.mannodermaus.android-junit5")
+    id("name.remal.check-dependency-updates") version Versions.BuildUtil.CheckDependencyUpdates
     jacoco
 }
 
@@ -31,4 +32,7 @@ dependencies {
     testImplementation(Dependencies.Test.JunitApi)
     testImplementation(Dependencies.Test.Hamcrest)
     testImplementation(Dependencies.Test.Coroutine)
+}
+android {
+    namespace = "io.github.jisungbin.composetemplate.domain"
 }

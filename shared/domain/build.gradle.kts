@@ -1,9 +1,13 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("name.remal.check-dependency-updates") version Versions.BuildUtil.CheckDependencyUpdates
 }
 
 dependencies {
-    api(Dependencies.Coroutine)
-    api(Dependencies.Util.Logeukes)
+    val apis = listOf(
+        Dependencies.Coroutine,
+        Dependencies.Util.Logeukes
+    )
+    apis.forEach(::api)
 }

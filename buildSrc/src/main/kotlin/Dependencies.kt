@@ -65,6 +65,10 @@ object Dependencies {
         "com.squareup.retrofit2:converter-jackson:${Versions.Network.Retrofit}"
     )
 
+    val Login = listOf(
+        "com.kakao.sdk:v2-user:${Versions.Login.Kakao}"
+    )
+
     object Util { // Erratum 은 :presentation 에서만 쓰임
         const val Erratum = "land.sungbin:erratum:${Versions.Util.Erratum}"
         const val Logeukes = "land.sungbin:logeukes:${Versions.Util.Logeukes}"

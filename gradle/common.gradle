@@ -12,7 +12,9 @@ if (hasLibraryPlugin || hasApplicationPlugin || hasDFMPlugin) {
         }
     }
 
+    // TODO: change namespace to your package
     android {
+        namespace = "land.sungbin.androidprojecttemplate"
         compileSdk = ApplicationConstants.compileSdk
 
         defaultConfig {

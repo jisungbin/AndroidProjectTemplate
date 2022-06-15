@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("name.remal.check-dependency-updates") version Versions.BuildUtil.CheckDependencyUpdates
 }
 
 android {
@@ -14,9 +15,16 @@ android {
 }
 
 dependencies {
-    implementation(Dependencies.EachKtx.Core)
-    implementation(Dependencies.EachKtx.Lifecycle)
-    implementationProject(ProjectConstants.Domain)
-    implementationProject(ProjectConstants.SharedDomain)
-    Dependencies.Compose.forEach(::implementation)
+    val projects = listOf(
+        ProjectConstants.Domain,
+        ProjectConstants.SharedDomain
+    )
+    projects.forEach(::implementationProject)
+
+    val dependencies = listOf(
+        Dependencies.Compose,
+        Dependencies.EachKtx.Core,
+        Dependencies.EachKtx.Lifecycle,
+    ).dependenciesFlatten()
+    dependencies.forEach(::implementation)
 }

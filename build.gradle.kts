@@ -15,11 +15,11 @@ buildscript {
     dependencies {
         classpath("org.jetbrains.dokka:dokka-base:${Versions.BuildUtil.Dokka}")
         classpath("com.android.tools.build:gradle:${Versions.Essential.Gradle}")
-        classpath("com.google.gms:google-services:${Versions.Essential.GoogleService}")
+        // classpath("com.google.gms:google-services:${Versions.Essential.GoogleService}")
         // classpath("com.spotify.ruler:ruler-gradle-plugin:${Versions.BuildUtil.Ruler}")
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.Jetpack.Hilt}")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Essential.Kotlin}")
-        classpath("com.google.firebase:perf-plugin:${Versions.Analytics.FirebasePerformance}")
+        // classpath("com.google.firebase:perf-plugin:${Versions.Analytics.FirebasePerformance}")
         classpath("de.mannodermaus.gradle.plugins:android-junit5:${Versions.Test.JUnitGradle}")
         classpath("com.google.android.gms:oss-licenses-plugin:${Versions.OssLicense.Classpath}")
         // classpath("com.google.firebase:firebase-crashlytics-gradle:${Versions.Analytics.FirebaseCrashlytics}")
