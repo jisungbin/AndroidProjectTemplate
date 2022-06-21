@@ -4,7 +4,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("io.gitlab.arturbosch.detekt") version Versions.BuildUtil.Detekt
     id("org.jlleitschuh.gradle.ktlint") version Versions.BuildUtil.KtlintPlugin
-    // id("com.android.test") version "7.4.0-alpha05" apply false
 }
 
 buildscript {
