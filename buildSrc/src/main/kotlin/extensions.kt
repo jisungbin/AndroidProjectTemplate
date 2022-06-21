@@ -2,12 +2,9 @@ import org.gradle.api.artifacts.ProjectDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.plugin.use.PluginDependenciesSpec
 
-@Suppress("ControlFlowWithEmptyBody") // empty if block
 fun PluginDependenciesSpec.installPlugins(
     isPresentation: Boolean = false,
     isDFM: Boolean = false,
-    scabbard: Boolean = false,
-    test: Boolean = false,
     hilt: Boolean = false,
 ) {
     if (!isPresentation && !isDFM) {
@@ -20,12 +17,6 @@ fun PluginDependenciesSpec.installPlugins(
     id("kotlin-kapt")
     if (!isDFM && hilt) {
         id("dagger.hilt.android.plugin")
-    }
-    if (test) {
-        id("de.mannodermaus.android-junit5")
-    }
-    if (scabbard) {
-//        id("scabbard.gradle") version Versions.Util.Scabbard
     }
 }
 
@@ -48,19 +39,18 @@ fun DependencyHandler.installDependencies(
     }
     if (compose) {
         Dependencies.Compose.forEach(::implementation)
-        Dependencies.Debug.Compose.forEach(::debugImplementation)
         projectImplementation(ProjectConstants.SharedCompose)
+        Dependencies.Debug.Compose.forEach(::debugImplementation)
     }
     if (test) {
-        testImplementation(Dependencies.Orbit.Test)
-        Dependencies.Test.forEach { testDependency ->
-            testImplementation(testDependency)
+        if (orbit) {
+            testImplementation(Dependencies.Orbit.Test)
         }
+        if (compose) {
+            androidTestImplementation(Dependencies.Test.ComposeUI)
+        }
+        Dependencies.Test.Local.forEach(::testImplementation)
     }
-}
-
-fun DependencyHandler.projectImplementation(path: String) {
-    implementation(project(path))
 }
 
 @Suppress(
@@ -81,20 +71,29 @@ fun List<*>.dependenciesFlatten() = buildList {
     }
 }
 
-private fun DependencyHandler.implementation(dependency: Any) {
-    add("implementation", dependency)
+// should public (using at other gradle files)
+fun DependencyHandler.projectImplementation(path: String) {
+    implementation(project(path))
 }
 
-private fun DependencyHandler.debugImplementation(dependency: Any) {
-    add("debugImplementation", dependency)
+private fun DependencyHandler.implementation(dependencyNotation: Any) {
+    add("implementation", dependencyNotation)
 }
 
-private fun DependencyHandler.testImplementation(dependency: Any) {
-    add("testImplementation", dependency)
+private fun DependencyHandler.debugImplementation(dependencyNotation: Any) {
+    add("debugImplementation", dependencyNotation)
 }
 
-private fun DependencyHandler.kapt(dependency: Any) {
-    add("kapt", dependency)
+private fun DependencyHandler.testImplementation(dependencyNotation: Any) {
+    add("testImplementation", dependencyNotation)
+}
+
+private fun DependencyHandler.androidTestImplementation(dependencyNotation: Any) {
+    add("androidTestImplementation", dependencyNotation)
+}
+
+private fun DependencyHandler.kapt(dependencyNotation: Any) {
+    add("kapt", dependencyNotation)
 }
 
 private fun DependencyHandler.project(path: String) =

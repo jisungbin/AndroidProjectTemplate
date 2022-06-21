@@ -11,7 +11,7 @@ android {
 dependencies {
     val apis = listOf(
         Dependencies.Coroutine,
-        Dependencies.Util.Logeukes
+        Dependencies.EachUtil.Logeukes
     )
     apis.forEach(::api)
 }

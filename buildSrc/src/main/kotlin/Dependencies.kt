@@ -1,6 +1,5 @@
 object Dependencies {
     const val Ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.Ksp}"
-    const val FirebaseBom = "com.google.firebase:firebase-bom:${Versions.FirebaseBom}"
     const val Coroutine =
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Essential.Coroutines}"
 
@@ -9,36 +8,18 @@ object Dependencies {
         const val Main = "org.orbit-mvi:orbit-viewmodel:${Versions.Orbit}"
     }
 
-    object FirebaseEachKtx { // 각각 쓰이는 모듈이 다름
-        const val Storage = "com.google.firebase:firebase-storage-ktx"
-        const val Performance = "com.google.firebase:firebase-perf-ktx"
-        const val Analytics = "com.google.firebase:firebase-analytics-ktx"
-        const val RemoteConfig = "com.google.firebase:firebase-config-ktx"
-        const val Crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
-    }
-
-    object EachKtx {
-        const val Core = "androidx.core:core-ktx:${Versions.Ktx.Core}"
-        const val Fragment = "androidx.fragment:fragment-ktx:${Versions.Ktx.Fragment}"
-        const val Activity = "androidx.activity:activity-ktx:${Versions.Ktx.Activity}"
-        const val Lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Ktx.Lifecycle}"
-    }
-
-    object EachUi {
-        const val Browser = "androidx.browser:browser:${Versions.Ui.Browser}"
-        const val Material = "com.google.android.material:material:${Versions.Ui.Material}"
-        const val ConstraintLayout =
-            "androidx.constraintlayout:constraintlayout:${Versions.Ui.ConstraintLayout}"
-    }
-
-    val SharedKtx = listOf(
+    val Ktx = listOf(
+        "androidx.core:core-ktx:${Versions.Ktx.Core}",
+        "androidx.fragment:fragment-ktx:${Versions.Ktx.Fragment}",
+        "androidx.activity:activity-ktx:${Versions.Ktx.Activity}",
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Ktx.Lifecycle}",
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Ktx.Lifecycle}"
     )
 
     val Compose = listOf(
+        "androidx.activity:activity-compose:${Versions.Ktx.Activity}",
         "androidx.compose.material:material:${Versions.Compose.Main}",
-        "androidx.activity:activity-compose:${Versions.Compose.Activity}",
+        "androidx.compose.ui:ui-tooling-preview:${Versions.Compose.Main}",
         "com.github.skydoves:landscapist-coil:${Versions.Compose.Landscapist}",
         "com.google.accompanist:accompanist-placeholder:${Versions.Compose.Accompanist}",
         "com.google.accompanist:accompanist-swiperefresh:${Versions.Compose.Accompanist}",
@@ -49,6 +30,7 @@ object Dependencies {
 
     val Ui = listOf(
         "androidx.core:core-splashscreen:${Versions.Ui.Splash}",
+        "com.google.android.material:material:${Versions.Ui.Material}",
         "com.google.android.gms:play-services-oss-licenses:${Versions.OssLicense.Main}"
     )
 
@@ -65,11 +47,7 @@ object Dependencies {
         "com.squareup.retrofit2:converter-jackson:${Versions.Network.Retrofit}"
     )
 
-    val Login = listOf(
-        "com.kakao.sdk:v2-user:${Versions.Login.Kakao}"
-    )
-
-    object Util { // Erratum 은 :presentation 에서만 쓰임
+    object EachUtil { // Erratum 은 :presentation 에서만 쓰임
         const val Erratum = "land.sungbin:erratum:${Versions.Util.Erratum}"
         const val Logeukes = "land.sungbin:logeukes:${Versions.Util.Logeukes}"
     }
@@ -83,6 +61,8 @@ object Dependencies {
         const val Hilt = "com.google.dagger:hilt-android:${Versions.Jetpack.Hilt}"
         const val DataStore =
             "androidx.datastore:datastore-preferences:${Versions.Jetpack.DataStore}"
+        const val ProfileInstaller =
+            "androidx.profileinstaller:profileinstaller:${Versions.Jetpack.ProfileInstaller}"
     }
 
     object Compiler {
@@ -90,19 +70,21 @@ object Dependencies {
         const val Hilt = "com.google.dagger:hilt-android-compiler:${Versions.Jetpack.Hilt}"
     }
 
-    val Test = listOf(
-        "org.hamcrest:hamcrest:${Versions.Test.Hamcrest}",
-        "org.junit.jupiter:junit-jupiter-api:${Versions.Test.JUnit}",
-        "org.junit.jupiter:junit-jupiter-engine:${Versions.Test.JUnit}",
-        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Test.Coroutine}"
-    )
+    object Test {
+        val Local = listOf(
+            "junit:junit:${Versions.Test.JUnit}",
+            "org.hamcrest:hamcrest:${Versions.Test.Hamcrest}",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Test.Coroutine}"
+        )
+        const val ComposeUI = "androidx.compose.ui:ui-test-junit4:${Versions.Compose.Main}"
+    }
 
     object Debug {
         const val LeakCanary =
             "com.squareup.leakcanary:leakcanary-android:${Versions.Util.LeakCanary}"
         val Compose = listOf(
             "androidx.compose.ui:ui-tooling:${Versions.Compose.Main}",
-            "androidx.compose.ui:ui-tooling-preview:${Versions.Compose.Main}"
+            "androidx.compose.ui:ui-test-manifest:${Versions.Compose.Main}"
         )
     }
 }

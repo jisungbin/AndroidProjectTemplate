@@ -2,12 +2,11 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("org.jetbrains.dokka") version Versions.BuildUtil.Dokka
-    id("de.mannodermaus.android-junit5")
     id("name.remal.check-dependency-updates") version Versions.BuildUtil.CheckDependencyUpdates
-    // jacoco
+    jacoco
 }
 
-/*jacoco {
+jacoco {
     toolVersion = Versions.Test.JaCoCo
 }
 
@@ -23,10 +22,10 @@ tasks.withType<JacocoReport> {
 tasks.withType<Test> {
     useJUnitPlatform()
     finalizedBy("jacocoTestReport")
-}*/
+}
 
 android {
-    namespace ="land.sungbin.androidprojecttemplate.domain"
+    namespace = "land.sungbin.androidprojecttemplate.domain"
 }
 
 dependencies {
@@ -35,5 +34,5 @@ dependencies {
     )
     projects.forEach(::projectImplementation)
 
-    Dependencies.Test.forEach(::testImplementation)
+    Dependencies.Test.Local.forEach(::testImplementation)
 }

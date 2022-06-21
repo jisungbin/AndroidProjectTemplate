@@ -23,10 +23,7 @@ dependencies {
     )
     projects.forEach(::projectImplementation)
 
-    val dependencies = listOf(
-        Dependencies.Compose,
-        Dependencies.EachKtx.Core,
-        Dependencies.EachKtx.Lifecycle,
-    ).dependenciesFlatten()
-    dependencies.forEach(::implementation)
+    Dependencies.Compose.forEach(::implementation)
+    Dependencies.Test.Local.forEach(::testImplementation)
+    androidTestImplementation(Dependencies.Test.ComposeUI)
 }

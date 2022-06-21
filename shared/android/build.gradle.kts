@@ -10,17 +10,11 @@ android {
 
 dependencies {
     val apis = listOf(
-        Dependencies.SharedKtx,
-        Dependencies.EachKtx.Core,
+        Dependencies.Ktx,
         Dependencies.Jetpack.DataStore,
+        Dependencies.Jetpack.ProfileInstaller,
         project(ProjectConstants.Domain),
         project(ProjectConstants.SharedDomain)
     ).dependenciesFlatten()
     apis.forEach(::api)
-
-    val dependencies = listOf(
-        Dependencies.EachKtx.Activity,
-        Dependencies.EachKtx.Fragment
-    )
-    dependencies.forEach(::implementation)
 }

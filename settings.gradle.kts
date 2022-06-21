@@ -7,3 +7,4 @@ include(
     ":shared:compose",
     ":shared:android",
 )
+include(":benchmark")

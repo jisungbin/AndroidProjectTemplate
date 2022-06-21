@@ -24,8 +24,6 @@ dependencies {
         Dependencies.Jackson,
         Dependencies.Network,
         Dependencies.Jetpack.Room,
-        platform(Dependencies.FirebaseBom),
-        Dependencies.FirebaseEachKtx.Storage
     ).dependenciesFlatten()
     dependencies.forEach(::implementation)
 
